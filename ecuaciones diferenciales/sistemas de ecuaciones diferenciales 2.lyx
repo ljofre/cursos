@@ -1,0 +1,214 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sistemas lineales homogéneos con coeficientes constantes
+\end_layout
+
+\begin_layout Standard
+Se pueden suceder las siguientes situaciones
+\end_layout
+
+\begin_layout Enumerate
+Valores propios distintos
+\end_layout
+
+\begin_layout Enumerate
+Valores propios iguales que generan vectores propios distintos
+\end_layout
+
+\begin_layout Enumerate
+Valores propios iguales que generan vectores propios iguales
+\end_layout
+
+\begin_layout Enumerate
+Valores propios complejos conjugados
+\end_layout
+
+\begin_layout Problem
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Valores propios distintos
+\end_layout
+
+\end_inset
+
+ Resuelva 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dx}{dt} & = & 2x+3y\\
+\frac{dy}{dt} & = & 2x+y
+\end{eqnarray*}
+
+\end_inset
+
+podemos representarlo de forma matricial
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\frac{dx}{dt}\\
+\frac{dy}{dt}
+\end{bmatrix}=\begin{bmatrix}2 & 3\\
+2 & 1
+\end{bmatrix}\begin{bmatrix}x\\
+y
+\end{bmatrix}
+\]
+
+\end_inset
+
+para obtener los valores propios debemos resolver el siguiente determinante
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\det\begin{bmatrix}2-\lambda & 3\\
+2 & 1-\lambda
+\end{bmatrix} & = & 0\\
+\lambda^{2}-3\lambda-4 & = & 0\\
+\left(\lambda+1\right)\left(\lambda-4\right) & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+buscamos los valores propios
+\end_layout
+
+\begin_layout Problem
+por lo que los valores propios son 
+\begin_inset Formula $\lambda_{1}=-1$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda_{2}=4$
+\end_inset
+
+, cada uno de estos tiene un vector propio asociado 
+\begin_inset Formula $\mathcal{K}_{1}=\begin{bmatrix}-1\\
+1
+\end{bmatrix}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathcal{K}_{2}=\begin{bmatrix}3\\
+12
+\end{bmatrix}$
+\end_inset
+
+ por lo que la solución del sistema de ecuaciones diferenciales es:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}x\left(t\right)\\
+y\left(t\right)
+\end{bmatrix}=c_{1}\begin{bmatrix}-1\\
+1
+\end{bmatrix}e^{-t}+c_{2}\begin{bmatrix}3\\
+2
+\end{bmatrix}e^{4t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nos damos cuenta de que cada solución es la combinación lineal 
+\begin_inset Formula 
+\[
+X\left(t\right)=c_{1}K_{1}e^{\lambda_{1}t}+c_{2}K_{2}e^{\lambda_{2}t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Valores propios iguales que generan vectores propios distintos
+\end_layout
+
+\end_inset
+
+ Resuelva el siguiente sistema de ecuaciones diferenciales
+\end_layout
+
+\end_body
+\end_document

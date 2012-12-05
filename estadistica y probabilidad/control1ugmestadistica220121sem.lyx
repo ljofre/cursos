@@ -1,0 +1,502 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-ams-extended
+sweave
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Pauta control 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{nota}=10+\frac{\mbox{puntos}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+El tiempo que un automovilista mantiene el auto en su poder antes de renovarlo
+ se distribuye normalmente con promedio 
+\begin_inset Formula $7.1$
+\end_inset
+
+ años y desviación estándar 
+\begin_inset Formula $1,9$
+\end_inset
+
+ años.
+ Una empresa proveedora de repuestos desea estudiar este problema para determina
+r si tendrá éxito en sus planes de venta.
+ Para ello toma una muestra aleatoria independiente de 
+\begin_inset Formula $15$
+\end_inset
+
+ propietarios de autos.
+\end_layout
+
+\begin_layout Itemize
+(A) Efectúe una prueba de hipótesis para probar si el tiempo promedio de
+ tenencia de auto ha disminuido en forma significativa, si en la muestra
+ se obtuvo que dicho promedio fue de 6 años y medio.
+\end_layout
+
+\begin_layout Standard
+Plantear la hipótesis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+H_{0} & : & \mbox{ El tiempo promedio se mantiene}\\
+H_{1} & : & \mbox{ El tiempo promedio ha disminuido}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que es equivalente a decir 
+\begin_inset Formula 
+\begin{align*}
+H_{0} & :\mu=7.1\\
+H_{1} & :\mu<7.1 &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que conocemos la desviación estándar de la población, el estadístico
+ de prueba es el siguiente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+z & =\frac{\overline{x}-\mu}{\sigma}\sqrt{n} &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La información que nos provee el problema es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mu & =7.1\\
+\sigma & =1.9\\
+n & =15\\
+\overline{x} & =6.5\\
+\alpha & =0.05 &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Criterio de decisión 
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $z_{\mbox{obs}}>-z_{1-\alpha}$
+\end_inset
+
+ se acepta la hipótesis nula, si 
+\begin_inset Formula $z_{\mbox{obs}}<-z_{1-\alpha}$
+\end_inset
+
+ se rechaza la hipótesis nula y se acepta la alternativa.
+ 
+\begin_inset Formula $\left(5\mbox{ PUNTOS}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calculamos cada uno de esos valores
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\alpha & =0.05\\
+1-\alpha & =0.95\\
+z_{1-\alpha} & =z_{0.95}\\
+z_{1-\alpha} & =1.64
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y el 
+\begin_inset Formula 
+\begin{align*}
+z_{\mbox{obs}} & =\frac{\left(6.5-7.1\right)}{1.9}\sqrt{15}\\
+z_{\mbox{obs}} & =-1.22305 &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $-1.22305=z_{\mbox{obs}}>-z_{1-\alpha}=-1,64$
+\end_inset
+
+ se acepta la hipótesis nula 
+\begin_inset Formula $\left(5\mbox{ PUNTOS}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+(B) Este comerciante invertirá en este negocio solo si se mantiene la variabilid
+ad en el tiempo de tenencia del auto.
+ Haga una prueba de hipótesis para decidir si invierte o no si en la misma
+ muestra anterior se obtuvo que la desviación estándar fue de 
+\begin_inset Formula $2.3$
+\end_inset
+
+ años.
+\end_layout
+
+\begin_layout Standard
+Plantear la hipótesis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+H_{0} & : & \mbox{ La variabilidad se mantiene}\\
+H_{1} & : & \mbox{ La variabilidad cambia}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que es equivalente a decir 
+\begin_inset Formula 
+\begin{align*}
+H_{0} & :\sigma^{2}=1.9\\
+H_{1} & :\sigma^{2}\neq1.9 &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El estadístico de prueba es 
+\begin_inset Formula 
+\begin{align*}
+\chi_{n-1}^{2} & =\frac{\left(n-1\right)s^{2}}{\sigma^{2}} &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Criterio de decisión 
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\chi_{n-1,\alpha/2}^{2}<\chi_{\mbox{obs}}^{2}<\chi_{n-1,1-\alpha/2}^{2}$
+\end_inset
+
+ se acepta la hipótesis nula, de lo contrario de rechaza la hipótesis nula
+ y se acepta la alternativa 
+\begin_inset Formula $\left(5\mbox{ PUNTOS}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calculamos cada uno de esos valores
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\chi_{n-1;\alpha/2}^{2} & =\chi_{14;0.025}^{2}\\
+ & =5,68\\
+\\
+\chi_{n-1;1-\alpha/2}^{2} & =\chi_{14;0.975}^{2}\\
+ & =26,19\\
+\\
+\chi_{\mbox{obs}}^{2} & =\frac{\left(15-1\right)\cdot2.3^{2}}{1.9^{2}}\\
+ & =20.5152 &  & \left(5\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\chi_{n-1,\alpha/2}^{2}<\chi_{\mbox{obs}}^{2}<\chi_{n-1,1-\alpha/2}^{2}$
+\end_inset
+
+ se acepta la hipótesis nula 
+\begin_inset Formula $\left(5\mbox{ PUNTOS}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+El llenado automático de envases de una bebida determinada, se supone que
+ se comporta normalmente, con una media de 
+\begin_inset Formula $125$
+\end_inset
+
+ cc y una desviación estándar desconocida.
+\end_layout
+
+\begin_layout Problem
+Para un control de calidad se toma una muestra de 
+\begin_inset Formula $16$
+\end_inset
+
+ bebidas.
+ Haga una prueba de hipótesis para un nivel de significación del 
+\begin_inset Formula $1\%$
+\end_inset
+
+, para probar si el promedio de llenado automático está controlado si en
+ la muestra de obtuvieron los siguientes datos:
+\end_layout
+
+\begin_layout Chunk
+<<echo= FALSE>>=
+\end_layout
+
+\begin_layout Chunk
+	x <- c(127, 123, 125, 126, 126, 124, 124, 125, 129, 128, 124,123, 124,
+ 128, 129, 126)
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Chunk
+<<echo= TRUE,comment=>>=
+\end_layout
+
+\begin_layout Chunk
+	x
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Standard
+Plantear la hipótesis 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+H_{0} & : & \mbox{ El sistema está controlado}\\
+H_{1} & : & \mbox{ El sistema no está controlado}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que es equivalente a decir 
+\begin_inset Formula 
+\begin{align*}
+H_{0} & :\mu=125\\
+H_{1} & :\mu\ne125 &  & \left(10\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La información que nos da el problema es
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\alpha & =0.01\\
+\mu & =125\\
+s & =\Sexpr{sd(x)}\\
+\overline{x} & =\Sexpr{mean(x)} &  & \left(10\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que desconocemos la desviación estándar de la población, el estadístico
+ de prueba es el siguiente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+t_{n-1} & =\frac{\overline{x}-\mu}{s}\sqrt{n} &  & \left(10\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Criterio de decisión 
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $-t_{n-1,1-\alpha/2}<t_{\mbox{obs}}<t_{n-1,1-\alpha/2}$
+\end_inset
+
+ se acepta la hipótesis nula, de lo contrario de rechaza la hipótesis nula
+ y se acepta la alternativa 
+\begin_inset Formula $\left(10\mbox{ puntos}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calculamos cada uno de esos valores
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+t_{n-1,1-\frac{\alpha}{2}} & =t_{15,0.995}\\
+ & =2.95\\
+\\
+t_{\mbox{obs}} & =\frac{(125.5-125)}{2.024}\sqrt{16}\\
+ & =0.988142 &  & \left(10\mbox{ PUNTOS}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $-t_{n-1,1-\alpha/2}<t_{\mbox{obs}}<t_{n-1,1-\alpha/2}$
+\end_inset
+
+ se acepta la hipótesis nula.
+ 
+\begin_inset Formula $\left(10\mbox{ PUNTOS}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

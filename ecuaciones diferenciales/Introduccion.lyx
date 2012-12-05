@@ -1,0 +1,1429 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Ecuaciones diferenciales
+\end_layout
+
+\begin_layout Author
+Leonardo Andrés Jofré Flor
+\end_layout
+
+\begin_layout Chunk
+
+\end_layout
+
+\begin_layout Abstract
+Las ecuaciones diferenciales son el método de resolución de ecuaciones cuya
+ espacio solución son el conjunto de las funciones.
+ Estas ecuaciones aparecen desde la física primordialmente al intentar modelar
+ sistemas dinámicos, como por ejemplo los del siguiente 
+\begin_inset CommandInset href
+LatexCommand href
+name "video"
+target "http://www.youtube.com/watch?v=5SJ24oHRSsU"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las ecuaciones diferenciales nacen al intentar encontrar leyes físicas que
+ no relacionan de forma simple las magnitudes, pero por otro lado, se pueden
+ encontrar relaciones de dependencia entre la magnitud buscada y sus derivadas.
+\end_layout
+
+\begin_layout Section
+Ideas introductorias
+\end_layout
+
+\begin_layout Standard
+El objetivo de curso es introducir al alumno a los conceptos y métodos básicos
+ asociados a ecuaciones diferenciales, y mostrar sus diversas aplicaciones
+ a distintos ámbitos de la Ingeniería.
+ El curso analiza en detalle las ecuaciones diferenciales de primer y segundo
+ orden, los sistemas lineales de ecuaciones diferenciales y los diversos
+ métodos de resolución.
+ También presenta herramientas del análisis cualitativo de las soluciones
+ de diversas ecuaciones diferenciales.
+\end_layout
+
+\begin_layout Exercise
+Encuentre la solución de la siguiente ecuación diferencial
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=f\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+de donde aparece este problema?
+\end_layout
+
+\begin_layout Enumerate
+cuántas soluciones tiene este problema?
+\end_layout
+
+\begin_layout Paragraph*
+Las ecuaciones diferenciales aparecen
+\end_layout
+
+\begin_layout Standard
+en distintos muchos problemas aplicados y muchos teóricos, por ejemplo.
+\end_layout
+
+\begin_layout Enumerate
+Dada la masa puntual de un cuerpo colgante de una cuerda a un punto fijo,
+ encontrar el movimiento que describe.
+\end_layout
+
+\begin_layout Enumerate
+Dado un circuito RLC (resistencia, inductor, condensador) encontrar la diferenci
+a de potencial entre dos nodos en función del tiempo, con ello la corriente.
+\end_layout
+
+\begin_layout Enumerate
+Dado una variable aleatoria 
+\begin_inset Formula $X\sim F_{X}\left(x\right)$
+\end_inset
+
+ encontrar una transformación 
+\begin_inset Formula $g\left(\cdot\right)$
+\end_inset
+
+ que generen una variable aleatoria 
+\begin_inset Formula $Y\sim F_{Y}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si conocemos que la taza de crecimiento de una variable es directamente
+ proporcional a la variable, entonces también estamos frente un problema
+ de ecuaciones diferenciales.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Crecimiento poblacional
+\end_layout
+
+\begin_layout Enumerate
+Desintegración radioactiva
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+etc, etc, etc...
+\end_layout
+
+\begin_layout Subsubsection*
+En síntesis una ecuación diferencial ordinaria
+\end_layout
+
+\begin_layout Standard
+en una ecuación que relaciona una función con sus derivadas, y puede ser
+ de la forma
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g\left(x,f\left(x\right),f^{\left(1\right)}\left(x\right),\ldots,f^{\left(k\right)}\left(x\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Una función es la solución de una ecuación diferencial
+\end_layout
+
+\begin_layout Standard
+Por lo que podemos verificar si una función pertenece o no al conjunto solución
+ de una ecuación diferencial
+\end_layout
+
+\begin_layout Example
+Verificar que 
+\begin_inset Formula $y=x^{4}/16$
+\end_inset
+
+ es solución de la ecuación diferencial 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=xy^{\frac{1}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Comprobar que la función 
+\begin_inset Formula $y=xe^{x}$
+\end_inset
+
+ es una solución de la ecuación diferencial 
+\begin_inset Formula $y''-2y'+y=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Comprobar que 
+\begin_inset Formula $x^{2}+y^{2}=4$
+\end_inset
+
+ es solución de la ecuación diferencial 
+\begin_inset Formula $\frac{dy}{dx}=-\frac{x}{y}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Comprobar que 
+\begin_inset Formula $x_{1}=c_{1}\cos4t$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}=c_{2}\sin4t$
+\end_inset
+
+ son soluciones de 
+\begin_inset Formula $x''+16x=0$
+\end_inset
+
+, compruebe también que 
+\begin_inset Formula $x_{1}+x_{2}$
+\end_inset
+
+ también es una solución.
+\end_layout
+
+\begin_layout Subparagraph
+Pero siempre quedará la siguiente pregunta 
+\end_layout
+
+\begin_layout Standard
+¿Y si yo quiero todas las soluciones posibles de una ecuación diferencial?
+ ¿Que propiedades tiene ese conjunto de todas las soluciones posibles? ¿De
+ qué sirve que existan más de una solución de una ecuación diferencial?.
+ Las soluciones de las ecuaciones diferenciales no son únicas, son infinitas,
+ es más si sumamos dos soluciones de una ecuación diferencial obtendremos
+ otra solución, y si multiplicamos por un escalar también obtendremos otra
+ solución, eso nos dice que la solución de una ecuación diferencial es una
+ espacio vectorial.
+\end_layout
+
+\begin_layout Section
+Ecuaciones diferenciales de primer orden
+\end_layout
+
+\begin_layout Subsection
+Ecuaciones diferenciales de variable separable
+\end_layout
+
+\begin_layout Standard
+Son todas aquellas ecuaciones diferenciales que se pueden separar en la
+ forma 
+\begin_inset Formula 
+\[
+f\left(x\right)dx=g\left(y\right)dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+por lo tanto cono se puede resolver mediante una integral 
+\begin_inset Formula 
+\[
+\int f\left(x\right)dx=\int g\left(y\right)dy+\mathcal{C}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en donde 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ es una constante de integración.
+\end_layout
+
+\begin_layout Theorem
+Toda ecuación diferencial de la forma 
+\begin_inset Formula $\frac{dy}{dx}=f\left(\alpha x+\beta y+c\right)$
+\end_inset
+
+ se puede reducir a una variable separable mediante la transformación 
+\begin_inset Formula $u=\alpha x+\beta y+c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Ecuación diferencia reducible a una de variable separable
+\end_layout
+
+\end_inset
+
+resuelva la siguiente ecuación diferencial 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=\frac{1}{x+y+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+consideremos 
+\begin_inset Formula 
+\[
+u=x+y+1
+\]
+
+\end_inset
+
+ entonces 
+\begin_inset Formula $du=dx+dy$
+\end_inset
+
+ luego 
+\begin_inset Formula $dy=du-dx$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{du-dx}{dx} & = & \frac{1}{u}\\
+\frac{du}{dx} & = & \frac{1}{u}+1\\
+\frac{du}{\frac{1}{u}+1} & = & dx\\
+\frac{udu}{1+u} & = & dx\\
+\left(1-\frac{1}{u+1}\right)du & = & dx\\
+\mbox{integramos}\\
+\int\left(1-\frac{1}{u+1}\right)du & = & \int dx+\mathcal{C}\\
+u-\ln\left(u+1\right) & = & x+\mathcal{C}\\
+\left(x+y+1\right)-\ln\left(x+y+2\right)-x & = & \mathcal{C}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ecuaciones diferenciales Homogéneas
+\end_layout
+
+\begin_layout Standard
+Una ecuación diferencial de la forma 
+\begin_inset Formula 
+\[
+M\left(x,y\right)dx+N\left(x,y\right)dy=0
+\]
+
+\end_inset
+
+también puede ser representada por la forma 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=F\left(x,y\right)
+\]
+
+\end_inset
+
+si 
+\begin_inset Formula 
+\[
+F\left(tx,ty\right)=F\left(x,y\right)
+\]
+
+\end_inset
+
+ entonces la ecuación diferencial es Homogénea y esta se puede reducir a
+ una variable separables mediante la transformación 
+\begin_inset Formula $y=ux$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Ecuación diferencial homogénea
+\end_layout
+
+\end_inset
+
+Resolver la siguiente ecuación diferencial
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=\frac{x}{y}+\frac{y}{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si consideramos 
+\begin_inset Formula $\frac{dy}{dx}=F\left(x,y\right)$
+\end_inset
+
+ entonces podemos verificar que 
+\begin_inset Formula $F\left(tx,ty\right)=F\left(x,y\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+dejamos la ecuación en su forma estándar
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dy}{dx} & = & \frac{x}{y}+\frac{y}{x}\\
+\frac{dy}{dx} & = & \frac{x^{2}+y^{2}}{xy}\\
+xydy & = & \left(x^{2}+y^{2}\right)dx\\
+\mbox{remplazamos }y=ux\\
+x\left(ux\right)d\left(ux\right) & = & \left(x^{2}+\left(ux\right)^{2}\right)dx\\
+ux^{2}\left(xdu+udx\right) & = & \left(x^{2}+\left(ux\right)^{2}\right)dx\\
+ux^{3}du+u^{2}x^{2}dx & = & x^{2}\left(1+u^{2}\right)dx\\
+uxdu+u^{2}dx & = & \left(1+u^{2}\right)dx\\
+uxdu & = & dx\\
+udu & = & \frac{dx}{x}\\
+\int udu & = & \int\frac{dx}{x}+\mathcal{C}\\
+\frac{u^{2}}{2} & = & \ln\left(x\right)+\mathcal{C}\\
+\mbox{sabemos que }u=\frac{y}{x}\\
+\frac{\left(\frac{y}{x}\right)^{2}}{2} & = & \ln\left(x\right)+\mathcal{C}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "No lo entendió?"
+target "http://www.youtube.com/watch?v=R8vPita5108"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es posible que una ecuación diferencial mediante un cambio de variable sea
+ reducible a homogénea.
+\end_layout
+
+\begin_layout Example
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Ecuación diferencial reducible a homogénea
+\end_layout
+
+\end_inset
+
+Resuelva la siguiente ecuación diferencial
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\left(x-4y-9\right)dx+\left(4x+y-2\right)dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+es necesario encontrar la forma de eliminar las constantes, para ello debemos
+ resolver el sistema de ecuaciones
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{eqnarray*}
+x-4y-9 & = & 0\\
+4x+y-2 & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+las cuales tienen por solución 
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{0}=-2$
+\end_inset
+
+ con lo cual podemos hacer la sustitución 
+\begin_inset Formula $X=x-1$
+\end_inset
+
+ y 
+\begin_inset Formula $Y=y+2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(X+1-4\left(Y-2\right)-9\right)dX+\left(4\left(X+1\right)+\left(Y-2\right)-2\right)dY & = & 0\\
+\left(X-4Y\right)dX+\left(4X+Y\right)dY & = & 0\\
+\mbox{Sustituimos }Y=UX\\
+\left(X-4UX\right)dX+\left(4X+UX\right)d\left(UX\right) & = & 0\\
+\left(1-4U\right)dX+\left(4+U\right)d\left(UX\right) & = & 0\\
+\left(1-4U\right)dX+\left(4+U\right)\left(XdU+UdX\right) & = & 0\\
+\left(1-4U+4U+U^{2}\right)dX+X\left(4+U\right)dU & = & 0\\
+\left(1+U^{2}\right)dX+X\left(4+U\right)dU & = & 0\\
+\frac{dX}{X}+\frac{4+U}{1+U^{2}}dU & = & 0\\
+\frac{dX}{X}+\frac{4}{1+U^{2}}dU+\frac{U}{1+U^{2}}dU & = & 0\\
+\mbox{Integrar}\\
+\int\frac{dX}{X}+4\int\frac{1}{1+U^{2}}dU+\int\frac{U}{1+U^{2}}dU & = & 0\\
+\ln\left(X\right)+4\arctan\left(U\right)+2\ln\left(U^{2}+1\right) & = & \mathcal{C}\\
+\ln\left(x-1\right)+4\arctan\left(\frac{y+2}{x-1}\right)+2\ln\left(\left(\frac{y+2}{x-1}\right)^{2}+1\right) & = & \mathcal{C}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Reducible a homogéneas, rectas paralelas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Resuelva 
+\begin_inset Formula 
+\[
+y'=\frac{x-y-1}{x-y-2}
+\]
+
+\end_inset
+
+consideramos 
+\begin_inset Formula $z=x-y\to z'=1-y'\to y'=1-z'$
+\end_inset
+
+, al reemplazar nos queda que 
+\begin_inset Formula 
+\begin{eqnarray*}
+1-z' & = & \frac{z-1}{z-2}\\
+z' & = & 1-\frac{z-1}{z-2}\\
+\left(z-2\right)dz & = & -dx
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+con lo que podemos obtener, al integrar y al deshacer el cambio 
+\begin_inset Formula $z=x-y$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\left(x-y-2\right)^{2}+2x=\mathcal{C}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ecuación diferencial exacta
+\end_layout
+
+\begin_layout Standard
+Una ecuación diferencial exacta es aquella que se puede representar como
+ una forma diferencial de producto de funciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=f\left(x,y\right)\implies dz=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy
+\]
+
+\end_inset
+
+un ejemplo de ecuación diferencial exacta puede ser 
+\begin_inset Formula 
+\[
+2xydx+\left(x^{2}-1\right)dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general cualquier ecuación de la forma 
+\begin_inset Formula 
+\[
+M\left(x,y\right)dx+N\left(x,y\right)dx=0
+\]
+
+\end_inset
+
+es una ecuación diferencial exacta si se cumple la siguiente condición 
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem*
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Clairaut-Schwartz
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+ y además se cumple que 
+\begin_inset Formula $f\in\mathcal{C}^{2}\left(\Omega\right)$
+\end_inset
+
+ se cumple que 
+\end_layout
+
+\begin_layout Theorem*
+\begin_inset Formula 
+\[
+\frac{\partial^{2}f}{\partial x\partial y}=\frac{\partial^{2}f}{\partial y\partial x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bajo este teorema podemos obtener un algoritmo para resolver cualquier ecuación
+ diferencial exacta.
+\end_layout
+
+\begin_layout Example
+Resolver la siguiente ecuación diferencial exacta 
+\begin_inset Formula 
+\[
+2xydx+\left(x^{2}-1\right)dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observamos que 
+\begin_inset Formula $M\left(x,y\right)=2xy$
+\end_inset
+
+ , además 
+\begin_inset Formula $N\left(x,y\right)=x^{2}-1$
+\end_inset
+
+, por lo que debemos verificar la condición 
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}=2x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+esto quiere decir que existe un 
+\begin_inset Formula $f$
+\end_inset
+
+ que cumple 
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial f}{\partial x} & =M\left(x,y\right) & \frac{\partial f}{\partial y}= & N\left(x,y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+consideremos 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial f}{\partial x} & = & M\left(x,y\right)\\
+f & = & \int2xydx+g\left(y\right)\\
+f & = & 2y\int xdx+g\left(y\right)\\
+f & = & x^{2}y+g\left(y\right)\\
+\mbox{derivarmos parcialmente en }y\\
+\frac{\partial f}{\partial y} & = & x^{2}+g'\left(y\right)\\
+x^{2}-1 & = & x^{2}+g'\left(y\right)\\
+g'\left(y\right) & = & -1\\
+g\left(y\right) & = & -y
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+finalmente se deduce que 
+\begin_inset Formula 
+\[
+x^{2}y-y=0
+\]
+
+\end_inset
+
+es la solución a la ecuación diferencial exacta, esto lo podemos verificar
+ mediante 
+\begin_inset Formula 
+\begin{eqnarray*}
+d\left(x^{2}y-y\right) & = & 0\\
+yd\left(x^{2}\right)+x^{2}dy-dy & = & 0\\
+2xydx+\left(x^{2}-1\right)dy & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Factor de integración
+\end_layout
+
+\begin_layout Standard
+Ocurre a veces que no se cumple la condición de ecuación diferencial exacta,
+ por lo que hay que construir la ecuación.
+ Para construir la condición de exactitud se puede encontrar y multiplicar
+ una función que hace que se cumpla la exactitud, dicha función se llama
+ factor integrante.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Factor integrante
+\end_layout
+
+\end_inset
+
+ Si la ecuación diferencial 
+\begin_inset Formula $M\left(x,y\right)dx+N\left(x,y\right)dy=0$
+\end_inset
+
+ no es una ecuación diferencial exacta pero la ecuación diferencial 
+\begin_inset Formula $\mu\left(x,y\right)M\left(x,y\right)dx+\mu\left(x,y\right)N\left(x,y\right)dy=0$
+\end_inset
+
+ si lo es, entonces se dice que la función 
+\begin_inset Formula $\mu\left(x,y\right)$
+\end_inset
+
+ es un factor integrante de la ecuación diferencial.
+\end_layout
+
+\begin_layout Theorem
+Si la función 
+\begin_inset Formula 
+\[
+\left(\partial M/\partial y-\partial N/\partial x\right)/N
+\]
+
+\end_inset
+
+ solo depende de 
+\begin_inset Formula $x$
+\end_inset
+
+ entonces la función 
+\begin_inset Formula 
+\[
+\mu\left(x\right)=\exp\left(\int\left(\partial M/\partial y-\partial N/\partial x\right)/N\right)dx
+\]
+
+\end_inset
+
+ es un factor integrante y si la función 
+\begin_inset Formula 
+\[
+\left(\partial N/\partial x-\partial M/\partial y\right)/M
+\]
+
+\end_inset
+
+solo depende de 
+\begin_inset Formula $y$
+\end_inset
+
+ entonces la función 
+\begin_inset Formula 
+\[
+\mu\left(y\right)=\exp\left(\int\left(\partial N/\partial x-\partial M/\partial y\right)/M\right)dy
+\]
+
+\end_inset
+
+es un factor integrante también.
+\end_layout
+
+\begin_layout Proof
+Consideremos el caso en que el factor integrante solamente es en función
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+, la nueva ecuación diferencial es de la forma 
+\begin_inset Formula 
+\[
+\mu\left(x\right)M\left(x,y\right)dx+\mu\left(x\right)N\left(x,y\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+para que sea exacta se debe de cumplir que 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial y}\mu\left(x\right)M\left(x,y\right) & = & \frac{\partial}{\partial x}\mu\left(x\right)N\left(x,y\right)\\
+\mu\left(x\right)\frac{\partial}{\partial y}M\left(x,y\right) & = & N\left(x,y\right)\frac{\partial}{\partial x}\mu\left(x\right)+\mu\left(x\right)\frac{\partial}{\partial x}N\left(x,y\right)\\
+\mu\left(x\right)\left(\frac{\frac{\partial}{\partial y}M\left(x,y\right)-\frac{\partial}{\partial x}N\left(x,y\right)}{N\left(x,y\right)}\right) & = & \frac{\partial}{\partial x}\mu\left(x\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay que tener en consideración que estas dos formulas no son las únicas
+ para obtener factores integrantes.
+\end_layout
+
+\begin_layout Exercise
+Resolver la siguiente ecuación diferencial
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Formula 
+\[
+\left(2x^{2}+y\right)dx+\left(x^{2}y-x\right)dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos que 
+\begin_inset Formula $2x^{2}+y=M\left(x,y\right)\to1=\partial M/\partial y$
+\end_inset
+
+ y también que 
+\begin_inset Formula $x^{2}y-x=N\left(x,y\right)\to2xy-1=\partial N/\partial y$
+\end_inset
+
+.
+ No es exacta.
+\end_layout
+
+\begin_layout Standard
+Buscamos cada uno de las funciones 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\partial M/\partial y-\partial N/\partial x\right)/N & = & \frac{1-\left(2xy-1\right)}{x^{2}y-x}\\
+ & = & -\frac{2}{x}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mu\left(x\right) & = & e^{-2\int\frac{1}{x}dx}\\
+ & = & x^{-2}
+\end{eqnarray*}
+
+\end_inset
+
+es un factor integrantes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{-2}\left(2x^{2}+y\right)dx+x^{-2}\left(x^{2}y-x\right)dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ecuaciones diferenciales ordinarias lineales de primer orden
+\end_layout
+
+\begin_layout Standard
+Sea la ecuación de la forma 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}+p\left(x\right)y=q\left(x\right)
+\]
+
+\end_inset
+
+es llamada ecuación diferencial ordinaria lineal de primer orden.
+\end_layout
+
+\begin_layout Note
+Toda ecuación diferencial lineal ordinaria de primer orden es una ecuación
+ diferencial que por medio de factor integrante se puede reducir a una ecuación
+ diferencial exacta.
+\end_layout
+
+\begin_layout Note
+\begin_inset Formula 
+\[
+\left(p\left(x\right)y-q\left(x\right)\right)dx+dy=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+El factor integrante 
+\begin_inset Formula 
+\[
+\mu\left(x\right)=\exp\left(\int\frac{M_{y}-N_{x}}{N}dx\right)=\exp\left(\int p\left(x\right)dx\right)
+\]
+
+\end_inset
+
+con esto la ecuación diferencial queda definida por 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\exp\left(\int p\left(x\right)dx\right)\left(p\left(x\right)y-q\left(x\right)\right)dx+\exp\left(\int p\left(x\right)dx\right)dy=0
+\]
+
+\end_inset
+
+y es exacta, luego existe una función 
+\begin_inset Formula $f$
+\end_inset
+
+ que cumple que 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial f}{\partial x} & = & \exp\left(\int p\left(x\right)dx\right)\left(p\left(x\right)y-q\left(x\right)\right)\\
+f & = & \int\exp\left(\int p\left(x\right)dx\right)\left(p\left(x\right)y-q\left(x\right)\right)dx+g\left(y\right)\\
+\frac{\partial f}{\partial y} & = & \int\exp\left(\int p\left(x\right)dx\right)\left(p\left(x\right)\right)dx+g'\left(y\right)\\
+\exp\left(\int p\left(x\right)dx\right) & = & \int\exp\left(\int p\left(x\right)dx\right)p\left(x\right)dx+g'\left(y\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De esta forma podemos obtener la solución general, existen formas más rápidas
+ tomando en consideración las formas diferenciales.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Solución general de la ecuación diferencial ordinaria lineal de primer orden
+\end_layout
+
+\end_inset
+
+ Al multiplicar el factor integrante nos queda una ecuación diferencial
+ de la siguiente forma
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+e^{\int p\left(x\right)dx}\frac{dy}{dx}+e^{\int p\left(x\right)dx}p\left(x\right)y=e^{\int p\left(x\right)dx}q\left(x\right)
+\]
+
+\end_inset
+
+la cual la expresión de la izquierda es la derivada de un producto
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d}{dx}\left[e^{\int p\left(x\right)dx}y\right] & = & e^{\int p\left(x\right)dx}q\left(x\right)\\
+d\left[e^{\int p\left(x\right)dx}y\right] & = & e^{\int p\left(x\right)dx}q\left(x\right)dx\\
+e^{\int p\left(x\right)dx}y & = & \int e^{\int p\left(x\right)dx}q\left(x\right)dx+C\\
+y\left(x\right) & = & e^{-\int p\left(x\right)dx}\left(\int e^{\int p\left(x\right)dx}q\left(x\right)dx+C\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Determine una función una solución continua para la ecuación diferencial
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\frac{dy}{dx}+y=f\left(x\right)
+\]
+
+\end_inset
+
+en donde 
+\begin_inset Formula 
+\[
+f\left(x\right)=\begin{cases}
+1 & \mbox{si }0\leq x\leq1\\
+0 & \mbox{si }x>1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+entonces hay que resolver dos ecuaciones diferenciales hacer que el límite
+ por la derecha y por la izquierda de dichas soluciones coincidan.
+\end_layout
+
+\begin_layout Problem
+El cálculo 
+\begin_inset Formula $e^{\int dx}=e^{x}$
+\end_inset
+
+ es el factor integrante, con lo que
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{1}\left(x\right) & = & e^{-\int p\left(x\right)dx}\left[\int e^{\int p\left(x\right)dx}f_{1}\left(x\right)dx+C_{1}\right]\\
+ & = & e^{-x}\left[\int e^{x}f_{1}\left(x\right)dx+C_{1}\right]
+\end{eqnarray*}
+
+\end_inset
+
+como en ese intervalo 
+\begin_inset Formula $f_{1}\left(x\right)=1$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{1}\left(x\right) & = & e^{-x}\left[\int e^{x}dx+C_{1}\right]\\
+ & = & e^{-x}\left[e^{x}+C_{1}\right]\\
+ & = & 1+e^{-x}C_{1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+y en el segundo intervalo podemos
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{2}\left(x\right) & = & e^{-\int p\left(x\right)dx}\left[\int e^{\int p\left(x\right)dx}f_{2}\left(x\right)dx+C_{2}\right]\\
+ & = & e^{-x}\left[\int e^{x}f_{2}\left(x\right)dx+C_{2}\right]\\
+ & = & e^{-x}\left[C_{2}\right]\\
+ & = & C_{2}e^{-x}
+\end{eqnarray*}
+
+\end_inset
+
+al igualar las dos funciones en el límite 
+\begin_inset Formula $x=1$
+\end_inset
+
+ nos queda que 
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{1}\left(1\right) & = & y_{2}\left(1\right)\\
+e^{-1}C_{1} & = & 1+C_{2}e^{-1}\\
+\frac{C_{1}}{e} & = & 1+\frac{C_{2}}{e}\\
+C_{1}+C_{2} & = & e
+\end{eqnarray*}
+
+\end_inset
+
+con lo que la solución es 
+\begin_inset Formula 
+\[
+y\left(x\right)=\begin{cases}
+1+e^{-x}\left(C_{2}-e\right) & \mbox{si }0\leq x\leq1\\
+C_{2}e^{-x} & \mbox{si }x>1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ecuación diferencial de Bernoullí
+\end_layout
+
+\begin_layout Standard
+La ecuación diferencial de la forma 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}+p\left(x\right)y=q\left(x\right)y^{n}
+\]
+
+\end_inset
+
+bajo la sustitución 
+\begin_inset Formula 
+\[
+z=y^{1-n}\to\frac{dz}{dx}=\left(1-n\right)y^{-n}\frac{dy}{dx}\to\frac{1}{\left(1-n\right)}\frac{dz}{dx}=y^{-n}\frac{dy}{dx}
+\]
+
+\end_inset
+
+con ello, al dividir en la ecuación diferencial por ambos lados por 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ nos queda que
+\begin_inset Formula 
+\begin{eqnarray*}
+y^{-n}\frac{dy}{dx}+p\left(x\right)y^{1-n} & = & q\left(x\right)\\
+\frac{1}{\left(1-n\right)}\frac{dz}{dx}+p\left(x\right)z & = & q\left(x\right)\\
+\frac{dz}{dx}+\left(1-n\right)p\left(x\right)z & = & \left(1-n\right)q\left(x\right)
+\end{eqnarray*}
+
+\end_inset
+
+que es una ecuación diferencial lineal con factor integrante 
+\begin_inset Formula $e^{\int\left(1-n\right)p\left(x\right)dx}$
+\end_inset
+
+.
+ al multiplicar a ambos lados por el factor integrante logramos la forma
+ diferencial.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+e^{\int\left(1-n\right)p\left(x\right)dx}\frac{dz}{dx}+e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)p\left(x\right)z & = & e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)\\
+d\left[e^{\int\left(1-n\right)p\left(x\right)dx}z\right] & = & e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx\\
+\mbox{integramos}\\
+e^{\int\left(1-n\right)p\left(x\right)dx}z & = & \int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C\\
+z & = & e^{-\int\left(1-n\right)p\left(x\right)dx}\int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C\\
+y^{1-n} & = & e^{-\int\left(1-n\right)p\left(x\right)dx}\left(\int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C\right)\\
+y\left(x\right) & = & \sqrt[1-n]{e^{-\int\left(1-n\right)p\left(x\right)dx}\left(\int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C\right)}\\
+y\left(x\right) & = & \sqrt[1-n]{\frac{\left(\int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C\right)}{e^{\int\left(1-n\right)p\left(x\right)dx}}}\\
+y\left(x\right) & = & \sqrt[n-1]{\frac{e^{\int\left(1-n\right)p\left(x\right)dx}}{\int e^{\int\left(1-n\right)p\left(x\right)dx}\left(1-n\right)q\left(x\right)dx+C}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Resolver la siguiente ecuación diferencial 
+\begin_inset Formula 
+\[
+x\frac{dy}{dx}+y=xy^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Paras a su forma normal 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dy}{dx}+\frac{1}{x}y & = & y^{2}\\
+y^{-2}\frac{dy}{dx}+\frac{1}{x^{2}}y^{-1} & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+bajo la sustitución 
+\begin_inset Formula $z=y^{-1}\to\frac{dz}{dx}=-y^{-2}\frac{dy}{dz}\to-\frac{dz}{dx}=y^{-2}\frac{dy}{dz}$
+\end_inset
+
+ y reemplazamos 
+\begin_inset Formula 
+\begin{eqnarray*}
+y^{-2}\frac{dy}{dx}+\frac{1}{x}y^{-1} & = & 1\\
+-\frac{dz}{dx}+\frac{1}{x}z & = & 1\\
+\frac{dz}{dx}-\frac{1}{x}z & = & -1
+\end{eqnarray*}
+
+\end_inset
+
+por lo que el factor integrante es 
+\begin_inset Formula $e^{-\int dx/x}=e^{-\ln x}=\frac{1}{x}$
+\end_inset
+
+ que general la forma diferencial
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{x}\frac{dz}{dx}-\frac{1}{x^{2}}z & = & -1\\
+d\left[\frac{z}{x}\right] & = & -dx\\
+\mbox{integramos}\\
+\frac{z}{x} & = & -x+C\\
+z & = & \left(-x+C\right)x\\
+y^{-1} & = & \left(-x+C\right)x\\
+y & = & \frac{1}{\left(C-x\right)x}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aplicaciones de las ecuaciones diferenciales ordinarias
+\end_layout
+
+\begin_layout Standard
+Ya inicialmente se expuso que las ecuaciones diferenciales eran aplicadas
+ a los sistemas dinámicos, estos fenómenos físicos corresponden a aquellos
+ los cuales existen tazas de variaciones medibles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{0}^{\infty}e^{-x^{2}}dx=\frac{\sqrt{\pi}}{2}$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Temperatura de un cuerpo
+\end_layout
+
+\begin_layout Standard
+Se calienta agua a la temperatura del punto de ebullición de 100ºC.
+ El agua se remueve, luego del calor y se guarda en un cuarto el cual está
+ a una temperatura constante de 60” C.
+ Después de 3 min la temperatura del agua e s 90ºC .
+ ( a ) E n c u e n t r e l a t e m p e r a t u r a d e l a g u a d e s p
+ u é s d e 6 min.
+ ( b ) ¿Cuándo la temperatura del agua será de 75” C? ~61” C? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dT}{dt} & = & k\left(T-T_{m}\right)\\
+\frac{dT}{dt} & = & k\left(T-60\right)\\
+\frac{dT}{T-60} & = & kdt
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dT}{dt}=k\left(T-T_{m}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

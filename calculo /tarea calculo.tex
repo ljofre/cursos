@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\begin{document}
+	\begin{enumerate}
+	
+	\item Determinar el volumen encerrado por el plano $z>0$, la esfera $$x^2+y^2+z^2=a^2$$ y la superficie $$r(\theta) = a\sin(2\theta)$$
+
+	\item Demuestre que el centro de masa de de la octaba parte de la superficie esférica $x^2+y^2+z^2 = a^2$	con lo que $z(x,y) = \sqrt{a^2-x^2-y^2}$	con derivadas parciales $z_x^2 = x^2/(a^2-x^2-y^2)$ y  $z_y^2 = y^2/(a^2-x^2-y^2)$
+	El area está definida por 
+	$$\int_0^a\int_0^{\sqrt{a^2-x^2}} \sqrt{1+\frac{x^2+y^2}{a^2-x^2-y^2}}dydx$$ A pesar de que el cascarón es esférico, solo podemos hacer un cambio de variable polar.
+	$y = r \sin \theta$ y $x = r \cos \theta$ con lo cual la integral queda representada por 
+		$$\int_0^{\pi/2}\int_0^{a} \sqrt{1+\frac{r^2}{a^2-r^2}}rdrd\theta$$ lo cual se puese simplificar a 
+		$$\int_0^{\pi/2}\int_0^{a} \sqrt{\frac{a^2}{a^2-r^2}}rdrd\theta$$ para finalmente quedar determinada por 
+				$$a^2\int_0^{\pi/2}\int_0^{a} \frac{r}{\sqrt{a^2-r^2}}drd\theta$$ el cual es independiente de $\theta$ con lo cual
+				$$	\frac{\pi}{2}a^2\int_0^{a} \frac{r}{\sqrt{a^2-r^2}}dr$$ cuya primitiva se puse obtener mediante sustitución simple
+				$$a^2-r^2 = u \to rdr =- du/2$$
+\begin{eqnarray*}
+	-\frac{\pi}{2}a^2\int_0^{a} u^{-1/2}du &=& -\frac{\pi}{4}a^2 {u^{1/2}}_{r=0}^{r=a}\\
+	&=&  -\frac{\pi}{4}a^2 {\sqrt{a^2-r^2}}_{r=0}^{r=a}\\
+	&=& \frac{\pi}{4}a^3 \\
+\end{eqnarray*}
+
+La cual representa el área de superficie, y por lo tanto, la masa cuando la densidad de masa es constante unitaria con respecto el area de superficie.
+
+Para obtener el centro de masa hay que considerar que $$x=r\cos \theta$$, $$y = r\sin \theta$$ y $$z = \sqrt{a^2-r^2}$$
+
+con lo cual se puede desarrollar cada integral de forma independiente pero aprovechando el trabajo anterior
+\begin{eqnarray*}
+\overline{x}\cdot M &=& a^2\int_0^{\pi/2}\int_0^{a} \frac{r\cos \theta r}{\sqrt{a^2-r^2}}drd\theta\\
+&=& a^2\int_0^{\pi/2}\cos \theta \int_0^{a} \frac{r^2 }{\sqrt{a^2-r^2}}drd\theta\\
+\end{eqnarray*}
+
+Integral conocida por tablas
+
+$$\int \frac{r^2 }{\sqrt{a^2-r^2}}dr = \frac{1}{2}\left(-r \sqrt{a^2-r^2}+a^2 \arcsin\left(\frac{r}{a}\right)\right)$$
+
+que al ser evaluada sobre los limites de integración obtenemos una solución simple, solución que hay que tener en consideración porque es un resultado que se usará nuevamente.
+\begin{eqnarray*}
+\int_0^a \frac{r^2}{\sqrt{a^2-r^2}}dr &=& \frac{1}{2}\left(a^2 \arcsin\left(1\right)\right)-\frac{1}{2}\left(a^2 \arcsin\left(0\right)\right)\\
+&=&\frac{a^2\pi}{4}
+\end{eqnarray*}
+
+con lo cual se puede continuar
+
+\begin{eqnarray*}
+\overline{x}\cdot M &=& a^2\int_0^{\pi/2}\int_0^{a} \frac{r\cos \theta r}{\sqrt{a^2-r^2}}drd\theta\\
+&=& a^2\int_0^{\pi/2}\cos \theta \int_0^{a} \frac{r^2 }{\sqrt{a^2-r^2}}drd\theta\\
+&=& a^2\int_0^{\pi/2}\cos \theta\frac{a^2\pi}{4}d\theta\\
+&=&\frac{a^4\pi}{4}
+\end{eqnarray*}
+
+	
+	\item Determine la posición del centro de masa de la superficie homogenea $$az = a^2-\left(x^2+y^2\right)$$ 
+	
+	
+	La superficie de nivel $$F(x,y,z) = a^2-(x^2+y^2)-az$$
+	La definición de centro de masa es el de aquel punto que representa una simetría en la cantidad de masa en un conjunto de ejes paralelos al $x,y,z$. Bajo esta definición y dada la simetría del problema podemos obtener las siguientes conclusiones.
+	como $$F(x,y,z)=F(-x,y,z)\to \overline{x}=0$$.
+	como $$F(x,y,z)=F(x,-y,z)\to \overline{y}=0$$
+	
+Es simple ver que cada unas de las curvas de nivel de $$az = a^2-\left(x^2+y^2\right)$$ son todas circunferencias centradas en el origen, como la densidad de masa $\rho$ es constante este siempre será la proyección con respecto el plano $XY$ del centro de la circunferencia.
+	La componente $\overline{z}$ se obtiene mediante la siguiente integral
+	
+	primero calculamos la masa total, que es simplemente el area de la superficie multiplicada por la densidad contante $\sigma$, pero como dicha área de infinita la denotaremos por $M$ 
+\begin{eqnarray*}
+	M &=& \sum\sigma_i A_i\\
+	M &=& \sigma\int \int _{\mathcal{D}} \sqrt{1+\left(\frac{\partial}{\partial x} z\right)^2+\left(\frac{\partial}{\partial y} z\right)^2}dydx	
+\end{eqnarray*}	
+
+	La cual en coordenadas polares se representa por
+	$$M(R) = \sigma \lim_{R\to\infty} \int_0^{2\pi} \int_{0}^{R} \sqrt{1+\frac{4}{a}r^2}rdrd\theta$$.
+	Luego al considerar que $x = r \cos \theta$, $y = r \sin \theta$ y $z = a-r^2/a$ podemos calcular cada una de las componentes de el centro de masa.
+\begin{eqnarray*}
+	\overline{x} &=& \sigma \lim_{R\to\infty} \frac{ \int_0^{2\pi} \int_{0}^{R} 	r 	\cos \theta \sqrt{1+\frac{4}{a}r^2}rdrd\theta}{M(R)}
+\end{eqnarray*}
+
+Al aplicar el teorema de Fubini podemos ver que la integral se resume en \begin{eqnarray*}
+	\overline{x} &=& \sigma \lim_{R\to\infty} \frac{ \int_{0}^{R} r \sqrt{1+\frac{4}{a}r^2}r \int_0^{2\pi}\cos \theta d\theta dr}{M(R)}
+\end{eqnarray*}
+
+Sabemos que $\int_0^{2\pi}\cos \theta d\theta = 0$ lo que anula a loda la integral, al utilizar el mismo razonamiento para la componente $\overline{y}$ de la siguiente manera
+
+\begin{eqnarray*}
+	\overline{y} &=& \sigma \lim_{R\to\infty} \frac{ \int_{0}^{R} r \sqrt{1+\frac{4}{a}r^2}r \int_0^{2\pi}\sin \theta d\theta dr}{M(R)}
+\end{eqnarray*} obtenemos el mismo resultado, lo cual dice que
+$\overline{x}=0$ y $\overline{y}=0$, por lo que lo único restante es obtener $\overline{z}$, equivalente al argumento inicial de la solución.
+
+\begin{eqnarray*}
+	\overline{z} &=& \sigma \lim_{R\to\infty} \frac{ \int_0^{2\pi} \int_{0}^{R}(a-r^2/a)\sqrt{1+\frac{4}{a}r^2}rdrd\theta}{M(R)}
+\end{eqnarray*}
+
+integral la cual el integrando es independiente de $\theta$
+
+\begin{eqnarray*}
+	\overline{z} &=& \sigma \lim_{R\to\infty} \frac{ \int_0^{2\pi} \int_{0}^{R}(a-r^2/a)\sqrt{1+\frac{4}{a}r^2}rdrd\theta}{M(R)}
+\end{eqnarray*}
+
+La cual puede ser expresada mediante la siguiente suma, considerando que el integrando es independiente de $\theta$
+
+\begin{eqnarray*}
+	\overline{z} &=&  \lim_{R\to\infty} \frac{ a\cdot M(R)-\frac{2\pi\sigma}{a}  \int_{0}^{R}r^3\sqrt{1+\frac{4}{a}r^2}dr}{M(R)}
+\end{eqnarray*}
+
+La integral diverge dado que es una función creciente
+
+	\end{enumerate}
+\end{document}

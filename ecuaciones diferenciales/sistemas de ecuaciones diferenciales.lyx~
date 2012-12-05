@@ -1,0 +1,133 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+%Para dibujar gráficos bajo el lenguaje DOT
+\usepackage{dot2texi}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-ams-extended
+theorems-sec
+\end_modules
+\language spanish
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics dviwindo
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a5paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\rightmargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sistemas de ecuaciones diferenciales
+\end_layout
+
+\begin_layout Section
+Métodos abreviados de operador
+\end_layout
+
+\begin_layout Standard
+Los sitemas de ecuaciones diferenciales responden a la necesidad de encontrar
+ soluciones o conjuntos solución que hagan verdaderas ciertas proposiciones
+ en las que influyen las derivadas de distinto orden de dos o más funciones.
+\end_layout
+
+\begin_layout Standard
+El método que vamos a usar es el 
+\noun on
+método de eliminación
+\noun default
+ para ecuaciones diferenciales lineales con coeficientes constantes.
+\end_layout
+
+\begin_layout Problem
+Resuelva el siguiente sistema de ecuaciones diferenciales mediante el método
+ abreviados de operador 
+\begin_inset Formula \begin{align*}
+\frac{dx}{dt}-3x-6y & =t^{2}\\
+\frac{dy}{dt}+\frac{dx}{dt}-3y & =e^{t}\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Solución.
+
+\emph default
+ Si consideramos que 
+\begin_inset Formula $\frac{d}{dt}=D$
+\end_inset
+
+ como operador diferencial podemos simplificar la ecuación diferencial a
+ un sistema lineal: 
+\begin_inset Formula \begin{align*}
+\left(D-3\right)x-6y & =t^{2}\\
+Dx+\left(D-3\right) & =e^{t}\end{align*}
+
+\end_inset
+
+Podemos representarlos de forma matricial de manera que 
+\begin_inset Formula \[
+\left[\begin{array}{cc}
+D-3 & -6\\
+D & D-3\end{array}\right]\left[\begin{array}{c}
+x\left(t\right)\\
+y\left(t\right)\end{array}\right]=\left[\begin{array}{c}
+t^{2}\\
+e^{t}\end{array}\right]\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Metodo de los autovalores y autovectores
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

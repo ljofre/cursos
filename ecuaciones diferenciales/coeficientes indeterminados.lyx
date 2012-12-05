@@ -1,0 +1,406 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%Para dibujar gráficos bajo el lenguaje DOT
+\usepackage{dot2texi}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-ams-extended
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics dviwindo
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\rightmargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+coeficientes indeterminados
+\end_layout
+
+\begin_layout Problem
+Encuentre la solución particular de las siguientes ecuaciones diferenciales
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y''+3y'+2y=3t$
+\end_inset
+
+ 
+\emph on
+Solución.
+ 
+\emph default
+Para encontrar la solución particular primero hay que verificar que ninguna
+ de las funciones sea linealmente dependiente con las soluciones de la homogénea
+, por lo que es necesario encontrar inicialmente la solución de la ecuación
+ homogénea: Si el polinomio auxiliar es de la forma 
+\begin_inset Formula $m^{2}+3m+2$
+\end_inset
+
+ entonces las raíces del polinomio característico está dado por 
+\begin_inset Formula $m_{1}=-2$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{2}=-1$
+\end_inset
+
+ de esta manera sabemos que la solución complementaria está dada por 
+\begin_inset Formula $y_{c}\left(t\right)=c_{1}e^{-2t}+c_{2}e^{-t}$
+\end_inset
+
+, como no existen 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+ tan que 
+\begin_inset Formula $y_{c}\left(t\right)=3t$
+\end_inset
+
+ entonces podemos asumir que la solución complementaria tiene la forma 
+\begin_inset Formula $y_{c}\left(t\right)=At+B\Rightarrow y'_{c}\left(t\right)=A\Rightarrow y''_{c}\left(t\right)=0$
+\end_inset
+
+ y al remplazarlo
+\end_layout
+
+\begin_layout Section
+Casos para solución particular
+\end_layout
+
+\begin_layout Subsection
+Ninguna función de la solución particular pertenece al conjunto solución
+ de la Homogénea
+\end_layout
+
+\begin_layout Example
+Determine la forma de la solución particular de las siguientes ecuaciones
+ diferenciales no homogéneas con coeficientes constantes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y''-8y+25y=5x^{3}e^{-x}-7e^{-x}$
+\end_inset
+
+ 
+\emph on
+Solución
+\emph default
+.
+ Primero nos percatamos que 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ se puede escribir de la forma 
+\begin_inset Formula $g\left(x\right)=\left(5x^{-3}-7\right)e^{-x}$
+\end_inset
+
+, por lo que podemos considerar una tentativa de solución a 
+\begin_inset Formula $y_{p}\left(x\right)=\left(Ax^{3}+Bx^{2}+Cx+D\right)e^{-x}$
+\end_inset
+
+.
+ Al obtener la ecuación auxiliar nos percatamos que la solución complementaria
+ es de la forma 
+\begin_inset Formula $y_{c}\left(x\right)=e^{4x}\left(c_{1}\cos3x+c_{2}\sin3x\right)$
+\end_inset
+
+ así de esta manera nos damos cuenta de que ninguna de las funciones implicadas
+ en 
+\begin_inset Formula $y_{p}$
+\end_inset
+
+ está contenida ni se puede representar como combinación lineal de las funciones
+ que forman a 
+\begin_inset Formula $y_{c}$
+\end_inset
+
+, procedemos en consecuencia entonces de igualar y encontrar las constantes
+ 
+\begin_inset Formula $A,B,C,D$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Una función en la solución particular es también una solución de la ecuación
+ homogénea
+\end_layout
+
+\begin_layout Standard
+En este caso si existe un 
+\begin_inset Formula $y_{p_{i}}$
+\end_inset
+
+ que es solución de la ecuación diferencial homogénea, entonces hay que
+ multiplicarle 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ en donde 
+\begin_inset Formula $n$
+\end_inset
+
+ es el mínimo entero que evita la dependencia lineal entre la solución complemen
+taria y la solución particular.
+\end_layout
+
+\begin_layout Example
+Determine la solución particular de 
+\begin_inset Formula $y''-2y+y=e^{x}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Solución
+\emph default
+.
+ La solución de la complementaria es 
+\begin_inset Formula $y_{c}\left(x\right)=c_{1}e^{x}+c_{2}xe^{x}$
+\end_inset
+
+ por lo que 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ es una solución de la ecuación diferencial homogénea con lo que 
+\begin_inset Formula $y_{p}=x^{n}e^{x}$
+\end_inset
+
+, ahora lo que nos corresponde deducir es el valor del entero 
+\begin_inset Formula $n$
+\end_inset
+
+, el cual debe ser el mínimo valor entero que evite la dependencia lineal
+ entra las soluciones de la ecuación diferencial, tomamos 
+\begin_inset Formula $n=2$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $y_{p}\left(x\right)=Ax^{2}e^{x}$
+\end_inset
+
+, al evaluarla en la ecuación obtenemos 
+\begin_inset Formula $A=\frac{1}{2}$
+\end_inset
+
+ por lo que la solución particular tentativa es 
+\begin_inset Formula $y_{p}\left(x\right)=\frac{1}{2}x^{2}e^{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Resolver 
+\begin_inset Formula $y''+4y'-2y=2x^{2}-3x+6$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+al resolver la ecuación homogénea asociada 
+\begin_inset Formula $y''+4y'-2y=0\Rightarrow y_{c}=c_{1}e^{-\left(2+\sqrt{6}\right)x}+c_{2}e^{\left(-2+\sqrt{6}\right)x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ es un polinomio cuadrático asumimos que la solución particular también
+ lo es 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y_{p} & =Ax^{2}+Bx+C\\
+y'_{p} & =2Ax+B\\
+y''_{p} & =2A
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al evaluar en la ecuación nos queda que 
+\begin_inset Formula 
+\[
+-2Ax^{2}+\left(8A-2B\right)x+\left(2A+4B-2C\right)=2x^{2}-3x+6
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al resolver el sistema de ecuación nos queda que: 
+\begin_inset Formula $A=-1,B=-\frac{5}{2},C=-9$
+\end_inset
+
+, así remplazamos y nos queda que
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y\left(x\right)=y_{c}\left(x\right)+y_{p}\left(x\right)=c_{1}e^{-\left(2+\sqrt{6}\right)x}+c_{2}e^{\left(-2+\sqrt{6}\right)x}-x^{2}-\frac{5}{2}x-9
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Determine la solución particular de la ecuación diferencial 
+\begin_inset Formula 
+\[
+y''-y'+y=2\sin\left(3x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+la solución particular tiene la forma 
+\begin_inset Formula $y_{p}=A\cos\left(3x\right)+B\sin\left(3x\right)$
+\end_inset
+
+, luego al diferenciar 
+\begin_inset Formula $y_{p}$
+\end_inset
+
+ y sustituir en la ecuación diferencial, y sacando factor común queda que:
+\begin_inset Formula 
+\[
+\left(-8A-3B\right)\cos\left(3x\right)+\left(3A-8B\right)\sin\left(3x\right)=2\sin\left(3x\right)
+\]
+
+\end_inset
+
+con lo que se puede concluir que 
+\begin_inset Formula $-8A-3B=0$
+\end_inset
+
+ y además 
+\begin_inset Formula $3A-8B=2$
+\end_inset
+
+ con lo que obtenemos que 
+\begin_inset Formula $A=\frac{6}{73}$
+\end_inset
+
+ y 
+\begin_inset Formula $B=-\frac{16}{73}$
+\end_inset
+
+ por lo que la solución particular de esta ecuación diferencial es 
+\begin_inset Formula 
+\[
+y_{p}=\frac{6}{73}\cos\left(3x\right)-\frac{16}{73}\sin\left(3x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Regla de multiplicación
+\end_layout
+
+\end_inset
+
+si una solución de la solución particular pertenece a la solución complementaria
+ se debe de multiplicar 
+\begin_inset Formula $x$
+\end_inset
+
+ a dicha solución hasta que no se cumpla esta condición.
+\end_layout
+
+\end_body
+\end_document

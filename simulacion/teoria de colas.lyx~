@@ -1,0 +1,570 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Tarea 2 simulación de sistemas
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chunk
+<<setup, echo = FALSE, results= 'hide', message = FALSE>>= 
+\end_layout
+
+\begin_layout Chunk
+require(xtable) 
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Standard
+En el presente trabajo se expone la solución a las problemas de teoría de
+ espera.
+ Para el desarrollo de los ejercicios se considera por defecto el uso de
+ promodel, pero al ser software privativo se considera el uso de R como
+ herramienta principal, previa consulta con el profesor.
+ Otro objetivo planteado en el presente trabajo es de servir como una introducci
+ón a la simulación de sistemas mediante el lenguaje de programación 
+\emph on
+R 
+\emph default
+como herramienta de simulaciones estocásticas, por lo tanto en el desarrollo
+ del siguiente trabajo tendría validez para el trabajo 1 del curso, previa
+ consulta del profesor.
+ Por último, como en todo trabajo de investigación, el resultado debe generar
+ un producto de utilizable y reutilizable, en el presente trabajo se propondrá
+ una generalización en el uso de colas mediante el método de montecarlo,
+ el cual se puede aplicar para el uso de otros métodos más especializados,
+ solo cambiando la distribución de probabilidad del tiempo entre evento
+ y la ley de probabilidad de atención de los terminales de servicio.
+ También servirá para validar los resultados teóricos dados por los modelos
+ 
+\emph on
+M/M/1 
+\emph default
+dados en el curso.
+\end_layout
+
+\begin_layout Section
+Problemas planteados
+\end_layout
+
+\begin_layout Subsection
+Problema del banco
+\end_layout
+
+\begin_layout Standard
+Los tiempos entre llegadas, de los Clientes que acuden a un Banco, y los
+ tiempos de servicios en las Cajas que el Banco posee, tienen las distribuciones
+ de probabilidades, que se describen a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tiempo entre llegadas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+probabilidad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tiempo de servicio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+probabilidad
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.30
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suponiendo que el Banco puede contar con: 1, 2 ó 3 Cajas, que operar con
+ Cola Única, se pide:
+\end_layout
+
+\begin_layout Standard
+Simular las 3 alternativas planteadas, considerando la llegada de 1000 Clientes
+ al Banco.
+ 
+\end_layout
+
+\begin_layout Chunk
+<<echo = TRUE>>=
+\end_layout
+
+\begin_layout Chunk
+t.llegada <- c(0.4, 0.6, 0.8, 1.0, 1.2)
+\end_layout
+
+\begin_layout Chunk
+t.lleg.dist <- c(0.15, 0.30, 0.25, 0.20, 0.10)
+\end_layout
+
+\begin_layout Chunk
+t.serv <- c(1.5, 2.4, 3.5, 4.2, 5.0)
+\end_layout
+
+\begin_layout Chunk
+t.serv.prob <- c(0.10, 0.25, 0.30, 0.25, 0.10)
+\end_layout
+
+\begin_layout Chunk
+
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Standard
+La simulación consiste en 
+\begin_inset Formula $1000$
+\end_inset
+
+ clientes que entran a la cola y son atendidos, cada uno tiene un tiempo
+ de espera según la distribución dada
+\end_layout
+
+\begin_layout Chunk
+<<echo = TRUE>>=
+\end_layout
+
+\begin_layout Chunk
+#numero de clientes
+\end_layout
+
+\begin_layout Chunk
+queue.n <- 1000
+\end_layout
+
+\begin_layout Chunk
+#las llegadas son aleatorias con la distribucion dada al igual que las atencione
+s
+\end_layout
+
+\begin_layout Chunk
+#muestra llegada 
+\end_layout
+
+\begin_layout Chunk
+splleg <- sample(t.llegada,1000,prob = t.lleg.dist,replace = TRUE) 
+\end_layout
+
+\begin_layout Chunk
+#muestra de atencion 
+\end_layout
+
+\begin_layout Chunk
+spserv <- sample(t.serv,1000,prob = t.serv.dist,replace = TRUE)
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Standard
+El tiempo que trascurre desde que llegó el primer usuario hasta que llegó
+ el último es independiente de la atención y se calcula sumando todos los
+ tiempos
+\end_layout
+
+\begin_layout Chunk
+<<echo = TRUE>>=
+\end_layout
+
+\begin_layout Chunk
+T <- cumsum(splleg)
+\end_layout
+
+\begin_layout Chunk
+T
+\end_layout
+
+\begin_layout Chunk
+@
+\end_layout
+
+\begin_layout Standard
+luego, las atenciones son sobre estas llegadas
+\end_layout
+
+\begin_layout Section
+Anexos
+\end_layout
+
+\begin_layout Subsection
+Código fuente de programas utilizados
+\end_layout
+
+\begin_layout Standard
+Simulación de la cola de atención
+\end_layout
+
+\end_body
+\end_document
